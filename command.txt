@@ -1,0 +1,24 @@
+# 도커 리엑트 셋업
+https://www.youtube.com/watch?v=W5Ov0H7E_o4
+
+npx create-react-app my-app
+docker build --tag react .
+docker run react
+docker run --publish 3000:3000 react
+
+#이걸로 파이널 런
+docker-compose run app
+
+if docker wont work like 404 error happnes
+docker login
+docker pull react
+
+#도커 디장고 셋업
+
+python3 -m venv venv
+source venv/bin/activate
+django-admin startproject core .
+
+#run python
+python3 manage.py runserver
+pip3 freeze > requirements.txt

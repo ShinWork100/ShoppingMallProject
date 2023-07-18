@@ -1,0 +1,6 @@
+#creating docker image
+docker build --tag python-django .
+#creating docker container
+docker run --publish 8000:8000 python-django
+
+https://www.youtube.com/watch?v=W5Ov0H7E_o4
