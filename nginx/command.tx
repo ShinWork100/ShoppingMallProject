@@ -1,0 +1,16 @@
+brew services start nginx
+
+running on http://localhost:8080
+
+brew services stop nginx
+'
+
+
+https://stackoverflow.com/questions/46337471/how-to-allow-cors-in-react-js
+https://stackoverflow.com/questions/43462367/how-to-overcome-the-cors-issue-in-reactjs/43464387#43464387
+
+https://www.youtube.com/watch?v=N4yUiQiTvwU
+
+railway.app/new
+
+https://www.youtube.com/watch?v=45nWsmBxT18
