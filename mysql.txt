@@ -1,0 +1,15 @@
+docker run -e MYSQL_ROOT_PASSWORD=password -d mysql
+
+docker run -it mysql /bin/bash
+
+docker ls
+docker inspect last file weird name
+"IPAddress": "172.17.0.2",
+
+mysql -h 172.17.0.2 -u root -p
+password=password
+create database userAccounts;
+show schemas;
+
+docker run phpmyadmin
+docker run -p 8080: -d phpmyadmin
