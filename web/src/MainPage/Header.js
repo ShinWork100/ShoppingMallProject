@@ -2,17 +2,20 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { homeItems, productItems } from './constants'; // Import the constants
 import Dropdown from './HeaderItems/Dropdown';
+import { Button } from '@mui/material';
 
 const HeaderWrapper = styled('header')({
   backgroundColor: '#000',
   color: '#fff',
-  padding: '2rem 1rem', /* Increased padding at the top and bottom */
-  flexShrink: 0, // Prevent the header from shrinking when content is long
+  padding: '.25rem 1rem', /* Increased padding at the top and bottom */
+  // flexShrink: 0, // Prevent the header from shrinking when content is long
 });
 
-const Logo = styled('div')({
+const LogoButton = styled(Button)({
   fontSize: '1.5rem',
   fontWeight: 'bold',
+  textDecoration: 'none',
+  color: '#fff',
 });
 
 const Nav = styled('nav')({
@@ -27,9 +30,10 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <div className="container">
         <Nav>
-          <Logo>My Website</Logo>
+          <a href="home">
+            <LogoButton >Dongmin Shin</LogoButton>
+          </a>
           <div>
             <Dropdown
               label="Home"
@@ -38,7 +42,6 @@ const Header = () => {
               open={Boolean(homeAnchorEl)}
               setAnchorEl={setHomeAnchorEl}
             />
-
             <Dropdown
               label="Products"
               items={productItems}
@@ -46,11 +49,9 @@ const Header = () => {
               open={Boolean(productAnchorEl)}
               setAnchorEl={setProductAnchorEl}
             />
-
-            {/* Repeat the same pattern for the other NavItems */}
           </div>
+            {/* Repeat the same pattern for the other NavItems */}
         </Nav>
-      </div>
     </HeaderWrapper>
   );
 };

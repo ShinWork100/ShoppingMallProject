@@ -35,7 +35,7 @@ const Body = () => {
       <div className="container">
         <HeroTitle>Welcome to My Website</HeroTitle>
         <HeroSubtitle>Discover the best products and services.</HeroSubtitle>
-        <CallToAction href="#">Get Started</CallToAction>
+        <CallToAction href="slide">Get Started</CallToAction>
       </div>
     </BodyWrapper>
   );

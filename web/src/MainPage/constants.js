@@ -6,7 +6,7 @@ const homeItems = [
   ];
   
   const productItems = [
-    { label: 'Product 1', link: '#' },
+    { label: 'Product 1', link: 'product' },
     { label: 'Product 2', link: '#' },
     { label: 'Product 3', link: '#' },
   ];
