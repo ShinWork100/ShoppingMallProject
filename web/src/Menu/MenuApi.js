@@ -17,8 +17,9 @@ const MenuApi = () => {
     <div>
     {data.map(user => (
       <div key={user.id}>
-        <div>{user.name}</div>
-        <div>{user.age}</div>
+        <div>{user.username}</div>
+        <div>{user.login}</div>
+        <div>{user.password}</div>
       </div>
     ))}
     </div>

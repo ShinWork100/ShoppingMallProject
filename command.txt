@@ -22,3 +22,6 @@ django-admin startproject core .
 #run python
 python3 manage.py runserver
 pip3 freeze > requirements.txt
+
+# service start need to use brew for mac
+sudo brew services list

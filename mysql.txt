@@ -13,3 +13,10 @@ show schemas;
 
 docker run phpmyadmin
 docker run -p 8080: -d phpmyadmin
+
+
+
+----------------------
+brew services start mysql
+
+databaseName = mall
