@@ -6,7 +6,7 @@ const MenuApi = () => {
   const [data, setData] = useState([]);
   
   useEffect(()=>{
-    axios.get('/api/users').then(res =>{
+    axios.get('/make-api-call').then(res =>{
       setData(res.data)
     }).catch(err => {
       console.log(err);

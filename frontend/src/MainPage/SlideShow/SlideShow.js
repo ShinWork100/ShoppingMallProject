@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components'; // Import createGlobalStyle
+import { Link } from 'react-router-dom';
 
 const SlideShowContainer = styled.div`
 max-width: 800px; /* Set the maximum width to limit the slideshow size */
@@ -17,6 +18,8 @@ min-height: 30%;
 max-height: 600px; /* Set the maximum height for the images */
 object-fit: contain; /* Preserve the aspect ratio of the images */
 flex: 1; /* Make the images take up equal space when wrapped to a new row */
+cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+
 `;
 
 const SlideShow = ({ images }) => {
@@ -36,10 +39,13 @@ const SlideShow = ({ images }) => {
 
   return (
     <SlideShowContainer>
+      {/* Wrap the SlideShowImage with a Link component */}
+      <Link to={`/image/${currentImageIndex}`}>
         <SlideShowImage
-            src={images[currentImageIndex]}
-            alt={`Slide ${currentImageIndex + 1}`}
+          src={images[currentImageIndex]}
+          alt={`Slide ${currentImageIndex + 1}`}
         />
+      </Link>
     </SlideShowContainer>
   );
 };

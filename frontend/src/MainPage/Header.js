@@ -32,7 +32,7 @@ const Header = () => {
     <HeaderWrapper>
         <Nav>
           <a href="home">
-            <LogoButton >Dongmin Shin</LogoButton>
+            <LogoButton >Dong Shin</LogoButton>
           </a>
           <div>
             <Dropdown

@@ -1,0 +1,29 @@
+# ubuntu docker 이름 web-server
+docker run --name web-server -it ubuntu:20.04
+
+#commit 과 빌드의 다름 run 도 다름 ---------
+#comit 을 하면 도커 파일이 돌아가는듯 run from 이런거
+#image 생성
+docker commit web-server
+
+#image 보기
+docker images
+
+#도커 파일을 이용해서 이미지를 만드는 방법
+#dokcer build
+docker build -t web-server-build .;
+#기존 컨테이너와 동일 이름 있으면 삭제 하고 다시 생성 
+# -p 8888:8000  뜻은 8888 을 8000에 연결한다는 뜻 
+# 무선 ap https://www.youtube.com/watch?v=PGV0I-BWlS0 6분 21초
+docker rm --force web-server;
+docker run -p 8888:8000 --name web-server web-server-build;
+
+#도커 안에서 python3 를 깔거임 python3 안에는 웹서버거 내장되어있음 
+
+#도커 이미지안에서 커맨드 날릴떄 apt 사용
+#apt 는 엡스토어 같은거임
+apt update 
+apt install python3
+
+#경로 생성 -p 
+mkdir -p /var/www/html
