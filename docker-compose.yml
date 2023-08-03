@@ -1,32 +1,33 @@
-version: '3.7'
+version: '3'
 
 services:
   backend:
-    volumes:
-      - static:/static
-    env_file:
-      - .env
     build:
-      context: ./backend
+      context: ./backend #backend directory
     ports:
       - "8000:8000"
+    command: gunicorn core.wsgi --bind 0.0.0.0:8000 #backend/core/wsgi.py file runs allow to see the out side of dockercontainer the --bind port #
+    env_file:
+      - .env
   frontend:
     build:
       context: ./frontend
-    volumes:
-      - frontend:/app/build
+    volumes: #메모리가 가는 곳
+      - frontend_build:/frontend/build
   nginx:
-    build:
-      context: ./nginx
+    image: nginx:latest
+    ports: 
+      - "80:8080" #webserver client send or request data on 80 so from 80 to 8080
+
     volumes:
-      - static:/static
-      - frontend:/var/www/frontend
-    ports:
-      - "80:80"
+      - ./nginx/nginx-setup.conf:/etc/nginx/conf.d/default.conf:ro 
+      # ./nginx/nginx-setup.config - This is the path on your host machine to the configuration file.
+      #/etc/nginx/conf.d/default.conf - This is the path inside the container where you want the file to be placed.
+      #:ro - This means the mount is "read-only."
+      - frontend_build:/var/www/frontend
     depends_on:
       - backend
       - frontend
 
 volumes:
-  static:
-  frontend:
+  frontend_build:

@@ -38,7 +38,6 @@ const DropdownMenuItem = styled(MenuItem)(({ theme }) => ({
 const Dropdown = ({ label, items, anchorEl, open,setAnchorEl}) => {
   const handleClick = (event) => {
     setAnchorEl(event.target);
-    console.log(event.target);
   };
 
   const handleClose = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import MenuApi from '../Menu/MenuApi';
+import UserComponent from '../Menu/UserComponent';
 
 const BodyWrapper = styled('section')({
   backgroundColor: '#f9f9f9',
@@ -34,7 +34,7 @@ const Body = () => {
   return (
     <BodyWrapper>
       <div className="container">
-        <MenuApi/>
+        <UserComponent/>
         <HeroTitle>Welcome to My Website</HeroTitle>
         <HeroSubtitle>Discover the best products and services.</HeroSubtitle>
         <CallToAction href="slide">Get Started</CallToAction>

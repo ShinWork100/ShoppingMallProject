@@ -1,5 +1,0 @@
-# 무선 ap https://www.youtube.com/watch?v=PGV0I-BWlS0 6분 21초
-현제 존제하는 localhost 를 밖에 사람들이 볼수 있도록 바꿈
-
-#https://www.youtube.com/watch?v=oX5ElI-koww
-docker 이해하는데 도움줌  

@@ -1,0 +1,4 @@
+https://www.youtube.com/watch?v=e63EBEFJkH0 이거보고 이앱 빌드함 django nginx docker react 
+
+https://velog.io/@oneook/Docker%EB%A1%9C-React-%EA%B0%9C%EB%B0%9C-%EB%B0%8F-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0
+https://saasitive.com/tutorial/docker-compose-django-react-nginx-let-s-encrypt/

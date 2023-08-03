@@ -1,14 +1,13 @@
-FROM python:3.8-slim
+# docker/backend/Dockerfile
 
-RUN pip install --upgrade pip
+FROM python:3.8.3-alpine
+ENV PYTHONUNBUFFERED 1
+WORKDIR /backend
+COPY requirements.txt requirements.txt 
 
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+# Adding necessary libraries for package compilation
+RUN apk add --no-cache gcc musl-dev python3-dev
+RUN apk add --no-cache tzdata
 
-COPY . /app
-WORKDIR /app
-
-COPY ./entrypoint.sh .
-ENTRYPOINT [ "sh", "/app/entrypoint.sh" ]
-
-# CMD [ "python3", "manage.py", "runserver", "0.0.0.0:8000"]
+RUN pip3 install -r requirements.txt
+COPY . .
