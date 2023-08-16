@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import { homeItems, productItems } from './constants'; // Import the constants
 import Dropdown from './HeaderItems/Dropdown';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled('header')({
   backgroundColor: '#000',
@@ -31,9 +32,9 @@ const Header = () => {
   return (
     <HeaderWrapper>
         <Nav>
-          <a href="home">
-            <LogoButton >DS</LogoButton>
-          </a>
+          <Link to="/home">
+            <LogoButton >Dongmin shin</LogoButton>
+          </Link>
           <div>
             <Dropdown
               label="Home"

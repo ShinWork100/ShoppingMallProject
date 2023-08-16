@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
 import Button from '@mui/material/Button';
 import { MenuItem } from '@mui/material';
+import { Link } from 'react-router-dom'; // <-- Import this
 
 const DropdownButton = styled(Button)({
   color: '#fff',
@@ -35,7 +36,7 @@ const DropdownMenuItem = styled(MenuItem)(({ theme }) => ({
   },
 }));
 
-const Dropdown = ({ label, items, anchorEl, open,setAnchorEl}) => {
+const Dropdown = ({ label, items, anchorEl, open, setAnchorEl }) => {
   const handleClick = (event) => {
     setAnchorEl(event.target);
   };
@@ -61,7 +62,7 @@ const Dropdown = ({ label, items, anchorEl, open,setAnchorEl}) => {
       >
         {items.map((item) => (
           <DropdownMenuItem key={item.label} onClick={handleClose}>
-            <a href={item.link}>{item.label}</a>
+            <Link to={item.link}>{item.label}</Link>  {/* <-- Change this line */}
           </DropdownMenuItem>
         ))}
       </DropdownMenu>

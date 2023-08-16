@@ -1,15 +1,15 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import UserComponent from '../Menu/UserComponent';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 const BodyWrapper = styled('section')({
   backgroundColor: '#f9f9f9',
-  padding: '4rem 1rem', /* Increased padding at the top and bottom */
+  padding: '4rem 1rem',
   textAlign: 'center',
-  flexGrow: 1, // Allow the HeroSection to grow and fill the remaining space
-  display: 'flex', // Use Flexbox to center items
-  justifyContent: 'center', // Center horizontally
-  alignItems: 'center', // Center vertically
+  flexGrow: 1,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 const HeroTitle = styled('h1')({
@@ -22,7 +22,7 @@ const HeroSubtitle = styled('p')({
   marginBottom: '2rem',
 });
 
-const CallToAction = styled('a')({
+const CallToAction = styled(Link)({
   backgroundColor: '#000',
   color: '#fff',
   padding: '1rem 2rem',
@@ -34,10 +34,9 @@ const Body = () => {
   return (
     <BodyWrapper>
       <div className="container">
-        <UserComponent/>
         <HeroTitle>Welcome to My Website</HeroTitle>
         <HeroSubtitle>Discover the best products and services.</HeroSubtitle>
-        <CallToAction href="slide">Get Started</CallToAction>
+        <CallToAction to="/slide">Get Started</CallToAction>
       </div>
     </BodyWrapper>
   );
