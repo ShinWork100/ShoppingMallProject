@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 const BodyWrapper = styled('section')({
-  backgroundColor: '#f9f9f9',
+  // backgroundColor: '#1e1f21',
   padding: '4rem 1rem',
   textAlign: 'center',
   flexGrow: 1,
