@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled, experimentalStyled as styled2 } from "@mui/material/styles"; // Ensure you import experimentalStyled
 import { productItems } from "./constants"; // Import the constants
 import Dropdown from "./HeaderItems/Dropdown";
@@ -6,16 +6,15 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import StyleButton from "./HeaderItems/StyleButton";
 import { useSelector, useDispatch } from "react-redux";
-import { setInfoAnchorEl, setNewAnchorEl } from "../Redux/anchorElSlice";
-
-// import { useLocation } from "react-router-dom";
+import {
+  setInfoState,
+  setNewState,
+  setMenuItemState,
+} from "../Redux/anchorElSlice";
 
 const HeaderWrapper = styled("header")({
   backgroundColor: "#292a2d",
   color: "#797981",
-  // padding: '.25rem 1rem', // Increased padding at the top and bottom
-  // marginLeft: '5%', // Adjust this value as needed
-  // marginRight: '5%', // Adjust this value as needed
 });
 
 const LogoButton = styled2(Button)(({ theme }) => ({
@@ -53,9 +52,10 @@ const DropdownsContainer = styled("div")({
 
 const Header = () => {
   const dispatch = useDispatch();
-
-  const infoAnchorEl = useSelector((state) => state.anchorEl.infoAnchorEl);
-  const newAnchorEl = useSelector((state) => state.anchorEl.newAnchorEl);
+  const infoState = useSelector((state) => state.anchorEl.infoState);
+  const newState = useSelector((state) => state.anchorEl.newState);
+  const menuItemState = useSelector((state) => state.anchorEl.menuItemState);
+  const [newAnchorEl, setnewAnchorEl] = useState(null);
 
   return (
     <HeaderWrapper>
@@ -66,16 +66,21 @@ const Header = () => {
         <DropdownsContainer>
           <StyleButton
             label="Information"
-            open={Boolean(infoAnchorEl)}
-            setInfoAnchorEl={(val) => dispatch(setInfoAnchorEl(val))}
+            open={Boolean(infoState)}
+            setNewState={(val) => dispatch(setNewState(val))}
+            setInfoState={(val) => dispatch(setInfoState(val))}
+            setMenuItemState={(val) => dispatch(setMenuItemState(val))}
           />
           <Dropdown
             label="New"
             items={productItems}
-            anchorEl={newAnchorEl}
-            open={Boolean(newAnchorEl)}
-            setNewAnchorEl={(val) => dispatch(setNewAnchorEl(val))}
-            setInfoAnchorEl={(val) => dispatch(setInfoAnchorEl(val))}
+            anchorEl={newState}
+            open={Boolean(newState || menuItemState)}
+            newAnchorEl={newAnchorEl}
+            setnewAnchorEl={setnewAnchorEl}
+            setNewState={(val) => dispatch(setNewState(val))}
+            setInfoState={(val) => dispatch(setInfoState(val))}
+            setMenuItemState={(val) => dispatch(setMenuItemState(val))}
           />
         </DropdownsContainer>
       </Nav>

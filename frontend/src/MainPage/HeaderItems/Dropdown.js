@@ -43,28 +43,34 @@ const DropdownButton = styled(Button)(({ open }) => ({
 const Dropdown = ({
   label,
   items,
-  anchorEl,
+  newAnchorEl,
   open,
-  setNewAnchorEl,
-  setInfoAnchorEl,
+  setnewAnchorEl,
+  setNewState,
+  setInfoState,
+  setMenuItemState,
 }) => {
   const dispatch = useDispatch();
   let closeTimeout = null;
 
   const handleOpen = (event) => {
+    console.log(event);
+    setnewAnchorEl(event.target);
     if (closeTimeout) {
-      clearTimeout(closeTimeout); 
+      clearTimeout(closeTimeout);
     }
-    dispatch(setNewAnchorEl(event.target));
   };
 
   const handleClose = () => {
-    dispatch(setNewAnchorEl(null));
+    setnewAnchorEl(null);
+    dispatch(setNewState(null)); // Clear the anchorEl
   };
 
-  const handleItemClose = () => {
-    dispatch(setNewAnchorEl(null));
-    dispatch(setInfoAnchorEl(null));
+  const handleItemClose = (event) => {
+    setnewAnchorEl(null);
+    dispatch(setNewState(null));
+    dispatch(setMenuItemState(true));
+    dispatch(setInfoState(null));
   };
 
   return (
@@ -78,8 +84,8 @@ const Dropdown = ({
       </DropdownButton>
       <DropdownMenu
         id="dropdown-menu"
-        anchorEl={anchorEl}
-        open={open}
+        anchorEl={newAnchorEl} // Use anchorPosition as the value
+        open={Boolean(newAnchorEl)}
         onClose={handleClose}
       >
         {items.map((item) => (

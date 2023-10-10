@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import { useDispatch } from "react-redux";
 
 const StyledButton = styled(Button)(({ open }) => ({
   color: open ? "#ff474c" : "#797981", // Adjust color based on the open state
@@ -12,10 +13,19 @@ const StyledButton = styled(Button)(({ open }) => ({
   },
 }));
 
-const StyleButton = ({ label, setInfoAnchorEl, open }) => {
+const StyleButton = ({
+  label,
+  setInfoState,
+  setNewState,
+  setMenuItemState,
+  open,
+}) => {
+  const dispatch = useDispatch();
+
   const handleButtonClick = () => {
-    console.log("toggle");
-    setInfoAnchorEl(!open); // toggle the open state
+    dispatch(setInfoState(true)); // toggle the open state
+    dispatch(setMenuItemState(null));
+    dispatch(setNewState(null)); // Dispatch the setNewState action with the desired value
   };
 
   return (
