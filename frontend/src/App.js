@@ -4,11 +4,12 @@ import Header from "./MainPage/Header";
 import Footer from "./MainPage/Footer";
 import Body from "./MainPage/Body";
 import SlideShowMain from "./MainPage/SlideShow/SlideShowMain";
-import Root from "./CommonStyles/MyStyles";
+import { Root } from "./CommonStyles/MyStyles";
 import ProductSlide from "./MainPage/SlideShow/ProductSlide";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Provider } from "react-redux";
-import { store } from "./Redux/store"
+import { store } from "./Redux/store";
+import Information from "./MainPage/Information/Information";
 // Creating the theme object
 const theme = createTheme({
   palette: {
@@ -37,7 +38,8 @@ const App = () => {
               <Route path="/" />
               <Route path="/home" element={<Body />} />
               <Route path="/slide" element={<SlideShowMain />} />
-              <Route path="/product" element={<ProductSlide />} />
+              <Route path="/product/:productId" element={<ProductSlide />} />
+              <Route path="/Information" element={<Information />} />
             </Routes>
             <Footer />
           </Root>

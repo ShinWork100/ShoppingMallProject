@@ -22,7 +22,9 @@ const LogoButton = styled2(Button)(({ theme }) => ({
   fontSize: "1.5rem",
   fontWeight: "bold",
   textDecoration: "none",
-  background: "linear-gradient(45deg, #ff474c 30%, #4b57db 90%)", // Gradient from red to yellow
+  background: "linear-gradient(45deg, 	#FFA6C9 30%, #ADD8E6 90%)", // Gradient from red to yellow
+
+  // background: "linear-gradient(45deg, #ff474c 30%, #4b57db 90%)", // Gradient from red to yellow
   color: "white",
   padding: "0.3rem 1rem", // Some padding to make the gradient more visible
   borderRadius: "5px", // A slight border radius for aesthetics

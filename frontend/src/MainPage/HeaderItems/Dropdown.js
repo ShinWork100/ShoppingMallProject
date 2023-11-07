@@ -54,7 +54,6 @@ const Dropdown = ({
   let closeTimeout = null;
 
   const handleOpen = (event) => {
-    console.log(event);
     setnewAnchorEl(event.target);
     if (closeTimeout) {
       clearTimeout(closeTimeout);
@@ -91,7 +90,7 @@ const Dropdown = ({
         {items.map((item) => (
           <DropdownMenuItem key={item.label} onClick={handleItemClose}>
             {item.link !== "#" ? (
-              <Link to={item.link}>{item.label}</Link>
+              <Link to={`${item.link}/${item.number}`}>{item.label}</Link>
             ) : (
               <span>{item.label}</span>
             )}
